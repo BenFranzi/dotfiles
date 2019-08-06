@@ -3,7 +3,8 @@ export ZSH="/Users/benfranzi/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Aliases
-alias c="cd "
+function cdandls() { cd "$1" && ls; }
+alias c="cdandls"
 alias o="open "
 alias p="cd ~/Documents/Projects/"
 alias l="ls -lah"
