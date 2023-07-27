@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/benfranzi/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Aliases
@@ -8,15 +8,24 @@ alias c="cdandls"
 alias o="open "
 alias p="cd ~/Documents/Projects/"
 alias l="ls -lah"
-alias vsc="open -a Visual\ Studio\ Code "
-alias stree="open -a Sourcetree"
+alias code="open -a Visual\ Studio\ Code "
 alias te='open -a TextEdit'
 alias yts="youtube-dl -x --audio-format mp3"
+alias code="open -a Visual\ Studio\ Code"
+Alias code:2="open -a Visual\ Studio\ Code\ -\ Insiders"
+alias y="yarn --frozen-lockfile"
+alias y:s="y && yarn start"
+alias y:d="y && yarn dev"
+alias te="open -a TextEdit"
+alias idea="open -a IntelliJ\ IDEA"
+alias p="cd ~/Documents/Projects"
+alias d="cd ~/Documents"
+review() { git stash  --include-untracked && git fetch --all && git checkout $1 && git pull --rebase }
+review:s() { git stash  --include-untracked && git fetch --all && git checkout $1 && git pull --rebase && y:s }
+alias python="python3"
+alias pip="pip3"
+what-is-using-port() { lsof -i tcp:$1 }
+alias hack="docker run -rm -it --name hollywood jturpin/hollywood hollywood"
+alias hack:stop="docker kill hollywood"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
