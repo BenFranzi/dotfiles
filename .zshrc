@@ -1,7 +1,11 @@
-export ZSH="~/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+export ZSH="$HOME/.oh-my-zsh"
 
-# Aliases
+ZSH_THEME="robbyrussell"
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
+
+# aliases
 alias code="open -a Visual\ Studio\ Code "
 alias yts="youtube-dl -x --audio-format mp3"
 alias code="open -a Visual\ Studio\ Code"
@@ -13,5 +17,3 @@ review() { git stash  --include-untracked && git fetch --all && git checkout $1 
 alias python="python3"
 alias pip="pip3"
 what-is-using-port() { lsof -i tcp:$1 }
-
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
