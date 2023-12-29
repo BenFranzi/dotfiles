@@ -1,2 +1,11 @@
+# VSCode exclude files and root level directories
+.vscode/*
+
+# VSCode - but keep project specific extensions
+!.vscode/extensions.json
+
+# Intellij IDE project options
 .idea
+
+# Mac OSX folder information
 .DS_Store
