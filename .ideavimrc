@@ -1,0 +1,78 @@
+set guicursor=""
+set nu
+set relativenumber
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set smartindent
+
+set nowrap
+
+set noswapfile
+set nobackup
+let &undodir = $HOME . "/.vim/undodir"
+set undofile
+
+set nohlsearch
+set incsearch
+
+set termguicolors
+
+set scrolloff=8
+set signcolumn=yes
+set isfname+=@-@
+
+set updatetime=50
+
+let g:mapleader = ' '
+
+nnoremap <leader>pv :Ex<CR> " open file tree, <p>roject <v>iew
+
+vnoremap J :m '>+1<CR>gv=gv<CR> " capital J - allow move command to move highlighted lines
+vnoremap K :m '<-2<CR>gv=gv<CR> " capital K - allow move command to move highlighted lines
+
+nnoremap J mzJ`z " J appends line below with a space, this keeps cursor not at the edge of the universe
+nnoremap <C-d> <C-d>zz " ctrl + d - half page jumping
+nnoremap <C-u> <C-u>zz " ctrl + u - half page jumping
+nnoremap n nzzzv " n - moves to the next item in search (note: zzz centers the screen, v re-enters visual mode)
+nnoremap N Nzzzv " N - moves to the previous item in search
+
+" greatest remap ever
+xnoremap <leader>p "_dP " paste over something without overwriting the register with the pasted over content
+
+" next greatest remap ever : asbjornHaland
+nnoremap <leader>y "+y " space + y - copy to system clipboard
+vnoremap <leader>Y "+Y " space + Y - yank the entire line
+
+vnoremap <leader>d "_d " space + d - delete into the black hole register
+
+nnoremap Q <nop> " ?? need to find history of this
+nnoremap <C-f> :silent !tmux neww tmux-sessionizer<CR> " ?? so far unused, tmux not set up
+nnoremap <leader>f :LspBufFormat<CR> " space + f - format the file
+
+" ??
+nnoremap <C-k> :cnext<CR>zz
+nnoremap <C-j> :cprev<CR>zz
+nnoremap <leader>k :lnext<CR>zz
+nnoremap <leader>j :lprev<CR>zz
+" ??
+" ??
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nnoremap <leader>x :!chmod +x %<CR>
+
+nnoremap <leader>mr :!CellularAutomaton make_it_rain<CR> " space + m + r - make it rain!
+
+nnoremap <leader><leader> :so<CR> " reload the file if there were any external modifications
+
+" My customs
+inoremap { {}<Esc>ha
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
+inoremap " ""<Esc>ha
+inoremap ' ''<Esc>ha
+inoremap ` ``<Esc>ha
+
+
