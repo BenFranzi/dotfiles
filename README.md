@@ -8,3 +8,16 @@ A collection of config files
 - nvim
 - to.sh
 - llvm
+
+## Setup required
+- configuring global gitignore
+- to.sh aliases
+
+## Installation
+
+### Setup
+Create a set of symbolic links e.g. `ln -s $(pwd)/.zshrc ~/.zshrc`
+> run `make`
+
+### Remove
+> run `make clean`
