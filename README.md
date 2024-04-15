@@ -8,6 +8,7 @@ A collection of config files
 - nvim
 - to.sh
 - llvm
+- jq
 
 ## Setup required
 - configuring global gitignore
