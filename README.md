@@ -9,6 +9,7 @@ A collection of config files
 - to.sh
 - llvm
 - jq
+- tree
 
 ## Setup required
 - configuring global gitignore
