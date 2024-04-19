@@ -9,7 +9,6 @@ A collection of config files
 - to.sh
 - llvm
 - jq
-- tree
 - fzf
 
 ## Setup required
