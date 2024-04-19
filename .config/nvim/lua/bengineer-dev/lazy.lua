@@ -37,5 +37,7 @@ require("lazy").setup({
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'L3MON4D3/LuaSnip' },
 	{ 'eandrju/cellular-automaton.nvim' },
-	{ 'ThePrimeagen/vim-be-good' }
+	{ 'ThePrimeagen/vim-be-good' },
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    { "mxsdev/nvim-dap-vscode-js", dependencies = {"mfussenegger/nvim-dap"} }
 })
