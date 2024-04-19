@@ -1,6 +1,12 @@
 SOURCE_DIR 		= $(shell pwd)
-DESTINATION_DIR 	= ${HOME}
-ASSETS 			= .zshrc .config/nvim .gitignore .ideavimrc
+DESTINATION_DIR = ${HOME}
+ASSETS 			= \
+	.zshrc \
+	.oh-my-zsh/custom/aliases.zsh \
+	.oh-my-zsh/custom/commands.zsh \
+	.config/nvim \
+	.gitignore \
+	.ideavimrc
 
 create_links:
 	@echo "➕ Creating dotfile symlinks: (${DESTINATION_DIR})"
