@@ -10,6 +10,7 @@ A collection of config files
 - llvm
 - jq
 - tree
+- fzf
 
 ## Setup required
 - configuring global gitignore
