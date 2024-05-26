@@ -4,6 +4,7 @@ ASSETS 			= \
 	.zshrc \
 	.oh-my-zsh/custom/aliases.zsh \
 	.oh-my-zsh/custom/commands.zsh \
+	.oh-my-zsh/custom/palette.zsh \
 	.config/nvim \
 	.gitignore \
 	.ideavimrc

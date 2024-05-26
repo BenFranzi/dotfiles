@@ -39,5 +39,8 @@ require("lazy").setup({
 	{ 'eandrju/cellular-automaton.nvim' },
 	{ 'ThePrimeagen/vim-be-good' },
     { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
-    { "mxsdev/nvim-dap-vscode-js", dependencies = {"mfussenegger/nvim-dap"} }
+    { 'theHamsta/nvim-dap-virtual-text' },
+    { 'mxsdev/nvim-dap-vscode-js', dependencies = {"mfussenegger/nvim-dap"} },
+    { 'leoluz/nvim-dap-go' },
+    { 'mrcjkb/rustaceanvim', version = '^4', lazy = false }
 })

@@ -9,3 +9,8 @@ if [ -f ~/.local.zshrc ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source <(fzf --zsh)
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt appendhistory
