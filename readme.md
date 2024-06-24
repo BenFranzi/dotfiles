@@ -10,6 +10,7 @@ A collection of config files
 - llvm
 - jq
 - fzf
+- zoxide
 
 ## Setup required
 - configuring global gitignore
