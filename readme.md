@@ -11,6 +11,8 @@ A collection of config files
 - jq
 - fzf
 - zoxide
+- tmux
+- tpm
 
 ## Setup required
 - configuring global gitignore

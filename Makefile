@@ -7,6 +7,7 @@ ASSETS 			= \
 	.oh-my-zsh/custom/palette.zsh \
 	.config/nvim \
 	.gitignore \
+	.tmux.conf \
 	.ideavimrc
 
 create_links:
