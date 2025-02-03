@@ -24,6 +24,7 @@
 - lazygit
 
 ## Commands to research
+- pbcopy 
 - find (basic version of fzf)
 - jq
 - sed
