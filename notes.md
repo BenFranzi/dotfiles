@@ -48,6 +48,7 @@
 - lazydocker - docker management app
 - lazygit
 - gdb-dashboard - visual C++ debugger
+- ripgrep
 
 
 ## Tools to implement as commands
