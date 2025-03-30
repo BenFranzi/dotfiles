@@ -19,20 +19,18 @@ kill-port() {
   lsof -ti:$1 | xargs kill
 }
 
-# review <branch> - Stash your changes and pull someone else's branch
+# review <branch> - Stash your local changes and pull another branch
 review() {
   if [[ -z $* ]]; then
-    echo-yellow "Usage: review <branch>\ndoes\n  - stashes working files\n  - fetches all\n  - checkout branch\n  - pull rebase"
+    echo-yellow "Usage: review <branch>\ndoes\n  - stashes working files\n  - checkout branch\n  - fetches branch\n  - pull rebases branch"
     return 1
   fi
 
   git stash  --include-untracked
-  git fetch --all
   git checkout $1
-  git pull --rebase
+  git fetch origin $1 --prune --prune-tags
+  git rebase origin/master
 }
-
-
 
 #### Work in Progress
 # ts <project name> - Clone and setup a basic typescript project
@@ -72,18 +70,27 @@ ts-plus() {
 # react-ts <project name> - Clone and setup a basic react ts project
 react-ts() {
   if [[ -z $1 ]]; then
-    echo "Provide a project name - usage: react-ts <project name>"
+    echo-yello "Provide a project name - usage: react-ts <project name>"
     return 1
   fi
 
-  git clone git@github.com:BenFranzi/launchpad-vite.git
-  mv launchpad-vite $1
-  cd $1
+  local project_name="$1"
+  local repo_url="git@github.com:BenFranzi/launchpad-vite.git"
+
+  # Clone the repository
+  git clone "$repo_url" "$project_name" || { echo-red "Failed to clone repository"; return 1; }
+
+  # Move into project directory
+  cd "$project_name" || { echo-red "Failed to enter project directory"; return 1; }
+
+  # Reset Git history
   rm -rf .git
-  npm install
   git init
   git add -A
-  git commit -m"initalise project"
+  git commit -m "Initialize project"
+
+  # Install dependencies
+  yarn
 }
 # react-js <project name> - Clone and setup a basic react js project
 react-js() {

@@ -18,6 +18,10 @@
 > `npx npkill` # searches for all node_modules, lets you interactively delete them
 
 
+### for ... in ...; do ... $f; done
+
+> `for f in $(find . -type -f); do mv $f ${f}.json; done` will add a json extension to every file in a directory
+
 ## Commands being familiarised with
 - jq
 - z (zoxide)
