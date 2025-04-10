@@ -30,6 +30,8 @@ review() {
   git checkout $1
   git fetch origin $1 --prune --prune-tags
   git rebase origin/$1
+  git status
+  git rev-parse HEAD
 }
 
 #### Work in Progress
