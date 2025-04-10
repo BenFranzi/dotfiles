@@ -29,7 +29,7 @@ review() {
   git stash  --include-untracked
   git checkout $1
   git fetch origin $1 --prune --prune-tags
-  git rebase origin/master
+  git rebase origin/$1
 }
 
 #### Work in Progress
