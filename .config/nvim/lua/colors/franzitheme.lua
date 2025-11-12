@@ -24,12 +24,6 @@ function M.setup()
   vim.cmd("highlight Underlined guifg=#6a8758 gui=underline")
 end
 
-vim.cmd([[augroup franzitheme]])
-vim.cmd([[autocmd!]])
-vim.cmd([[autocmd ColorScheme * lua require("colors.franzitheme").setup()]])
-vim.cmd([[augroup END]])
-
 M.setup()
 
-vim.cmd([[colorscheme franzitheme]])
 return M

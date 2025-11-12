@@ -1,0 +1,32 @@
+name: ballama
+version: 1.0.0
+schema: v1
+
+# To start using continue you need to start:
+# ollama serve 
+# (optional) 
+# docker run -p 1234:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data -e WEBUI_AUTH=false -e OLLAMA_API_BASE_URL=http://host.docker.internal:11434/api  --name open-webui  --restart always ghcr.io/open-webui/open-webui:main
+
+models:
+  - name: Qwen3
+    provider: ollama
+    model: qwen3:latest
+    roles:
+      - chat
+      - edit
+      - apply
+
+  - name: Qwen2.5 Coder
+    provider: ollama
+    model: qwen2.5-coder:latest
+    roles:
+      - chat
+      - edit
+      - apply
+      - autocomplete
+
+  - name: Nomic Embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed

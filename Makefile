@@ -9,7 +9,8 @@ ASSETS 			= \
 	.config/alacritty \
 	.gitignore \
 	.tmux.conf \
-	.ideavimrc
+	.ideavimrc \
+	.continue/config.yaml
 
 create_links:
 	@echo "➕ Creating dotfile symlinks: (${DESTINATION_DIR})"

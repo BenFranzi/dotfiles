@@ -31,8 +31,3 @@ Ignore stuff
 
 ## Remove
 > run `make clean`
-
-
-# Tasks 
-[] get to parity
-[] setup continue + ollama + qwen2.5-coder:7b
