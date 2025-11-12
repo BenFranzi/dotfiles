@@ -6,6 +6,7 @@ ASSETS 			= \
 	.oh-my-zsh/custom/commands.zsh \
 	.oh-my-zsh/custom/palette.zsh \
 	.config/nvim \
+	.config/alacritty \
 	.gitignore \
 	.tmux.conf \
 	.ideavimrc

@@ -77,7 +77,7 @@ react-ts() {
   fi
 
   local project_name="$1"
-  local repo_url="git@github.com:BenFranzi/launchpad-vite.git"
+  local repo_url="https://github.com/BenFranzi/launchpad-vite.git"
 
   # Clone the repository
   git clone "$repo_url" "$project_name" || { echo-red "Failed to clone repository"; return 1; }
@@ -93,22 +93,6 @@ react-ts() {
 
   # Install dependencies
   yarn
-}
-# react-js <project name> - Clone and setup a basic react js project
-react-js() {
-  if [[ -z $1 ]]; then
-    echo "Provide a project name - usage: react-js <project name>"
-    return 1
-  fi
-
-  git clone git@github.com:BenFranzi/react-js.git
-  mv react-js $1
-  cd $1
-  rm -rf .git
-  git init
-  git add -A
-  git commit -m\"initalise project\"
-  npm install
 }
 
 crud-js() {

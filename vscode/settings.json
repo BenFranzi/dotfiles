@@ -1,0 +1,40 @@
+{
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "editor.letterSpacing": 0.4,
+  "editor.smoothScrolling": true,
+  "workbench.colorCustomizations": {
+    "editor.background": "#000000",
+    "editor.foreground": "#ffffff",
+    "editor.lineHighlightBackground": "#415f69",
+    "editorLineNumber.foreground": "#888888",
+    "editorWhitespace.foreground": "#505050",
+    "editor.selectionBackground": "#5c5c42",
+    "editorCursor.foreground": "#ffffff",
+    "editorError.foreground": "#ff6b68",
+    "editorWarning.foreground": "#ffff00",
+    "editorBracketMatch.background": "#143d1b",
+    "editorBracketMatch.border": "#e6db7e"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      { "scope": "keyword", "settings": { "foreground": "#f92672", "fontStyle": "bold" } },
+      { "scope": "string", "settings": { "foreground": "#e6db74" } },
+      { "scope": "variable", "settings": { "foreground": "#cbad96" } },
+      { "scope": "function", "settings": { "foreground": "#a6e22e", "fontStyle": "italic" } },
+      { "scope": "comment", "settings": { "foreground": "#808081", "fontStyle": "italic" } },
+      { "scope": "number", "settings": { "foreground": "#ae81fe" } },
+      { "scope": "type", "settings": { "foreground": "#66d9ef" } },
+      { "scope": "constant", "settings": { "foreground": "#4186f8" } },
+      { "scope": "annotation", "settings": { "foreground": "#d0d0ff" } },
+      { "scope": "invalid", "settings": { "foreground": "#6a8758", "fontStyle": "underline" } },
+      { "scope": "storage", "settings": { "foreground": "#f92672", "fontStyle": "bold" } },
+      { "scope": "entity.name.class", "settings": { "foreground": "#66d9ef" } },
+      { "scope": "entity.name.function", "settings": { "foreground": "#a6e22e", "fontStyle": "italic" } },
+      { "scope": "punctuation", "settings": { "foreground": "#a9b7c6" } },
+      { "scope": "support.type", "settings": { "foreground": "#20999d" } },
+      { "scope": "meta.tag", "settings": { "foreground": "#ffffff" } }
+    ]
+  }
+}

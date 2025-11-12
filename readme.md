@@ -16,13 +16,23 @@ A collection of config files
 
 ## Setup required
 - configuring global gitignore
-- to.sh aliases
 
 ## Installation
 
-### Setup
+## Setup
 Create a set of symbolic links e.g. `ln -s $(pwd)/.zshrc ~/.zshrc`
 > run `make`
 
-### Remove
+Brew it up
+> run `brew bundle install`
+
+Ignore stuff
+> run `git config --global core.excludesfile ~/.gitignore`
+
+## Remove
 > run `make clean`
+
+
+# Tasks 
+[] get to parity
+[] setup continue + ollama + qwen2.5-coder:7b

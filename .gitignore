@@ -1,7 +1,6 @@
 # VSCode exclude files and root level directories
 .vscode/*
-
-# VSCode - but keep project specific extensions
+!.vscode/settings.json
 !.vscode/extensions.json
 
 # Intellij IDE project options
