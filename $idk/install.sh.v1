@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/bin/common.sh"
+
+print_banner
+
+info "Starting dotfiles installation..."
+
+OS=$(get_os)
+info "Detected OS: $OS"
+
+os_setup="$SCRIPT_DIR/bin/${OS}.sh"
+if file_exists "$os_setup"; then
+    source "$os_setup"
+else
+    error "No setup script for $OS at $os_setup"
+fi
+
+DOTFILES_SOURCE="$SCRIPT_DIR/v1"
+DOTFILES_DEST="$HOME"
+
+ASSETS=(
+    .zshrc
+    .oh-my-zsh/custom/aliases.zsh
+    .oh-my-zsh/custom/commands.zsh
+    .oh-my-zsh/custom/palette.zsh
+    .config/nvim
+    .config/alacritty
+    .tmux.conf
+    .ideavimrc
+    .continue/config.yaml
+)
+
+backup_dir="$DOTFILES_DEST/.dotfiles-backup-$(date +%Y%m%d%H%M%S)"
+
+info "Creating symlinks from $DOTFILES_SOURCE to $DOTFILES_DEST"
+
+for asset in "${ASSETS[@]}"; do
+    src="$DOTFILES_SOURCE/$asset"
+    dest="$DOTFILES_DEST/$asset"
+
+    if ! file_exists "$src" && ! directory_exists "$src"; then
+        info "Skipping $asset — not found in v1/"
+        continue
+    fi
+
+    if file_exists "$dest" || directory_exists "$dest" || [[ -L "$dest" ]]; then
+        if [[ -L "$dest" ]]; then
+            info "Skipping $asset — already a symlink"
+        else
+            mkdir -p "$(dirname "$backup_dir/$asset")"
+            mv "$dest" "$backup_dir/$asset"
+            info "Backed up $asset → $backup_dir/$asset"
+            ln -sf "$src" "$dest"
+            success "Linked $asset"
+        fi
+    else
+        mkdir -p "$(dirname "$dest")"
+        ln -sf "$src" "$dest"
+        success "Linked $asset"
+    fi
+done
+
+success "dotfiles installation complete!"

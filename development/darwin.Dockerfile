@@ -1,4 +1,4 @@
-FROM dockurr/macos:24.04
+FROM dockurr/macos:3.02
 
 WORKDIR /workspace
 

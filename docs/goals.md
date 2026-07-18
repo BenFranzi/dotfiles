@@ -1,25 +1,27 @@
 # Installs
-- 
+
+-
 - neovim (through Bob)
 - yazi
 - zoxide
 - fzf
 - mosh
 - oh my zsh - w autosugestions and syntax highlighting
-- tmux 
+- tmux
 - jq
 - unzip
 - TPM for tmux
 - lazygit
 - lazydocker
 - lazysql
-- nvm 
+- nvm
 - deno
 - opencode
+- docker (docker desktop for macos)
 
+# aliases
 
-
-# aliases 
 - wt stuff
 - lg for lazygit
 - gsm
+
