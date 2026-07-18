@@ -1,33 +1,18 @@
-# dotfiles
+# Dotfiles
 
-A collection of config files
+## Install
 
-## Installs
-- nvm
-- sdkman
-- nvim
-- to.sh
-- llvm
-- jq
-- fzf
-- zoxide
-- tmux
-- tpm
+```bash
+curl -fsSL https://raw.githubusercontent.com/benfranzi/dotfiles/main/go.sh | bash
+```
 
-## Setup required
-- configuring global gitignore
+Or clone and run manually:
 
-## Installation
+```bash
+git clone https://github.com/benfranzi/dotfiles.git ~/dotfiles && ~/dotfiles/install.sh
+```
 
-## Setup
-Create a set of symbolic links e.g. `ln -s $(pwd)/.zshrc ~/.zshrc`
-> run `make`
-
-Brew it up
-> run `brew bundle install`
-
-Ignore stuff
-> run `git config --global core.excludesfile ~/.gitignore`
-
-## Remove
-> run `make clean`
+## Development
+- Run `make -f development/Makefile.dev ubuntu` or `make -f development/Makefile.dev darwin`
+- In container, run `./install.sh`
+- To test install, run `./development/validate.sh`

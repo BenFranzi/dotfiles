@@ -1,0 +1,21 @@
+IMAGE=dotfiles-dev
+CONTAINER=dotfiles-container
+
+ROOT=$(shell pwd)
+MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
+.PHONY: ubuntu ubunturun clean
+
+ubuntu:
+	docker build -f $(MAKEFILE_DIR)ubuntu.Dockerfile -t $(IMAGE)-ubuntu $(ROOT)
+	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
+
+ubunturun:
+	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
+
+darwin:
+	docker build -f $(MAKEFILE_DIR)darwin.Dockerfile -t $(IMAGE)-darwin $(ROOT)
+	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-darwin bash
+
+clean:
+	docker rmi $(IMAGE)-ubuntu $(IMAGE)-darwin || true
