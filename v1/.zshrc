@@ -31,3 +31,18 @@ if command -v tmux >/dev/null 2>&1; then
     tmux new-session -t main -c "$PWD" || tmux attach-session -t main -c "$PWD"
   fi
 fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/benfranzi/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# opencode
+export PATH=/Users/benfranzi/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity
+#export PATH="/Users/benfranzi/.antigravity/antigravity/bin:$PATH"

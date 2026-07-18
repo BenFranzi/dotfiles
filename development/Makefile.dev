@@ -1,0 +1,17 @@
+IMAGE=dotfiles-dev
+CONTAINER=dotfiles-container
+
+ROOT=$(shell pwd)/..
+
+.PHONY: ubuntu darwin clean
+
+ubuntu:
+	docker build -f ubuntu.Dockerfile -t $(IMAGE)-ubuntu $(ROOT)
+	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
+
+darwin:
+	docker build -f darwin.Dockerfile -t $(IMAGE)-darwin $(ROOT)
+	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-darwin bash
+
+clean:
+	docker rmi $(IMAGE)-ubuntu $(IMAGE)-darwin || true
