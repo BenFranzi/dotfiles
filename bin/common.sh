@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 get_os() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "macos"
+    echo "darwin"
   elif [[ -f /etc/debian_version ]]; then
     echo "debian"
   else

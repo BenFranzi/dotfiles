@@ -17,7 +17,6 @@ else
   exit 1
 fi
 
-export SHELL="$(which zsh)"
 os_installs
 
 export PATH="$HOME/.local/bin:$HOME/.deno/bin:$HOME/go/bin:$HOME/.opencode/bin:$HOME/.cargo/bin:$PATH"

@@ -16,6 +16,7 @@ alias git::setup="git init && git add -A &&& git commit -m\"initalise project\""
 alias lg="lazygit"
 alias y="nvm install && yarn install"
 alias vim="nvim"
+alias gs="git stash --include-untracked"
 
 
 # Functions
@@ -56,21 +57,4 @@ react() {
   git commit -m "Initialize project"
 
   yarn
-}
-
-wt:new() {
-    if [ -z "$1" ]; then
-        echo-yellow "Usage: gwtc <branch-and-folder-name>"
-        return 1
-    fi
-    git worktree add -b "$1" "../$1" && cd "../$1"
-}
-
-# Leave a Git worktree and completely delete it
-wt:remove() {
-    if [ -z "$1" ]; then
-        echo-yellow "Usage: gwtd <folder-name>"
-        return 1
-    fi
-    git worktree remove "$1"
 }

@@ -25,6 +25,7 @@ os_installs() {
   install_if_missing "stow"    sudo_if_available apt install -y stow
   install_if_missing "mosh" sudo_if_available apt install -y mosh
 
+  export SHELL="$(which zsh)"
   info "Running generic installs..."
 
   if ! has_command bob; then

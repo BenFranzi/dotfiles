@@ -31,6 +31,7 @@ os_installs() {
   install_if_missing "lazydocker"  brew install lazydocker
   install_if_missing "yazi"        brew install yazi
 
+  export SHELL="$(which zsh)"
   info "Running generic installs..."
 
   if ! has_command bob; then
