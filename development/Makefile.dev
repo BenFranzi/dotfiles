@@ -8,14 +8,15 @@ MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 ubuntu:
 	docker build -f $(MAKEFILE_DIR)ubuntu.Dockerfile -t $(IMAGE)-ubuntu $(ROOT)
-	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
+	docker run -it --name $(CONTAINER)-ubuntu -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
 
 ubunturun:
-	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-ubuntu bash
+	docker start -ai $(CONTAINER)-ubuntu
 
 darwin:
 	docker build -f $(MAKEFILE_DIR)darwin.Dockerfile -t $(IMAGE)-darwin $(ROOT)
 	docker run --rm -it -v $(ROOT):/workspace -w /workspace $(IMAGE)-darwin bash
 
 clean:
+	docker rm -f $(CONTAINER)-ubuntu $(CONTAINER)-darwin 2>/dev/null; \
 	docker rmi $(IMAGE)-ubuntu $(IMAGE)-darwin || true

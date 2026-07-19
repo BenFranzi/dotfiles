@@ -4,6 +4,14 @@ os_installs() {
   info "Updating package lists..."
   sudo_if_available apt update
 
+  # Generate missing locale to avoid setlocale warnings
+  missing_locale="${LC_ALL:-${LANG:-}}"
+  if [ -n "$missing_locale" ] && ! locale -a 2>/dev/null | grep -qi "${missing_locale%%.*}"; then
+    info "Generating missing locale: $missing_locale..."
+    sudo_if_available apt install -y locales
+    sudo_if_available locale-gen "$missing_locale"
+  fi
+
   info "Installing apt packages..."
 
   install_if_missing "curl" sudo_if_available apt install -y curl ca-certificates
