@@ -32,5 +32,7 @@ success "Install was a success! ✅"
 
 print_banner
 
-# echo "next step, run `stow -v -d . -t ~ dotfiles`"
-# echo "to undo it run `stow -v -D -d . -t ~ dotfiles`"
+cat << 'EOF'
+next step, run `stow -v -d . -t ~ dotfiles`
+to undo it run `stow -v -D -d . -t ~ dotfiles`
+EOF
