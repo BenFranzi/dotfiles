@@ -26,13 +26,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-# fzf shell integration (compat: < 0.48 uses source, >= 0.48 uses --zsh)
-if fzf --zsh 2>/dev/null; then
-  eval "$(fzf --zsh)"
-elif [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
-  source /usr/share/doc/fzf/examples/completion.zsh
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
+eval "$(fzf --zsh)"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000

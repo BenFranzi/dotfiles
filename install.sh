@@ -28,43 +28,9 @@ export PATH="$HOME/.local/bin:$HOME/.deno/bin:$HOME/go/bin:$HOME/.opencode/bin:$
 
 verify_os_installs
 
-info "Resolving stow conflicts..."
-stow_dir="$SCRIPT_DIR/dotfiles"
-backup_dir="$HOME/.dotfiles-backup-$(date +%Y%m%d%H%M%S)"
-
-# Remove old symlinks and back up conflicting files
-while IFS= read -r -d '' entry; do
-  rel="${entry#$stow_dir/}"
-  target="$HOME/$rel"
-
-  if [ -L "$target" ]; then
-    info "Removing old symlink: $rel"
-    rm -f "$target"
-  elif [ -f "$target" ]; then
-    mkdir -p "$(dirname "$backup_dir/$rel")"
-    mv "$target" "$backup_dir/$rel"
-    info "Backed up $rel → $backup_dir/$rel"
-  fi
-done < <(find "$stow_dir" -type f ! -name ".DS_Store" -print0)
-
-# Handle directory-level conflicts (reverse sort so children come first)
-while IFS= read -r -d '' entry; do
-  rel="${entry#$stow_dir/}"
-  target="$HOME/$rel"
-
-  if [ -L "$target" ]; then
-    info "Removing old symlink: $rel"
-    rm -f "$target"
-  elif [ -d "$target" ]; then
-    mkdir -p "$(dirname "$backup_dir/$rel")"
-    mv "$target" "$backup_dir/$rel"
-    info "Backed up directory $rel → $backup_dir/$rel"
-  fi
-done < <(find "$stow_dir" -type d ! -name ".DS_Store" -print0 | sort -r -z)
-
-info "Stowing dotfiles to $HOME..."
-stow -d "$SCRIPT_DIR" -t "$HOME" dotfiles
-
 success "Install was a success! ✅"
 
 print_banner
+
+# echo "next step, run `stow -v -d . -t ~ dotfiles`"
+# echo "to undo it run `stow -v -D -d . -t ~ dotfiles`"
